@@ -15,21 +15,15 @@ import java.util.ResourceBundle;
 
 public abstract class TemplateMethod
 {
-    public void achtergrond(Stage primaryStage){
+    public void achtergrond(Stage primaryStage, Pane root, Scene scene){
 
         primaryStage.setTitle(translate(bundleKey()));
-
-        Pane root = new Pane();
-        Scene scene = new Scene(root, 800, 600);
-
         logo(root);
         blueBar(root, scene);
         fade(scene);
         displayTitle(root, scene);
-
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
     protected abstract String bundleKey();
     private String translate(String bundleKey){
@@ -68,7 +62,7 @@ public abstract class TemplateMethod
 
     }
     private void displayTitle(Pane root, Scene scene) {
-        String titleText = bundleKey();
+        String titleText = translate(bundleKey());
 
         Text title = new Text(titleText);
         title.setFont(Font.font("Oswald", FontWeight.EXTRA_BOLD, 50));
