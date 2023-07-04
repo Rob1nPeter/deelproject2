@@ -3,8 +3,6 @@ import com.example.demo1.Thema;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -16,14 +14,14 @@ import java.util.ResourceBundle;
 
 public abstract class TemplateMethod
 {
-    public void achtergrond(Stage primaryStage){
-        Pane root = new Pane();
-        Scene scene = new Scene(root, 800, 600);
+    public void achtergrond(Stage primaryStage, Pane root, Scene scene){
 
         primaryStage.setTitle(translate(bundleKey()));
         logo(root);
         blueBar(root, scene);
+        fade(scene);
         displayTitle(root, scene);
+
         Thema.keepTheme(scene);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -50,11 +48,20 @@ public abstract class TemplateMethod
     private void blueBar(Pane root, Scene scene) {
         // Dark blue bar below the logo
         Pane blueBar = new Pane();
-        blueBar.setBackground(new Background(new BackgroundFill(Color.DARKBLUE, null, null)));
-        blueBar.setPrefSize(scene.getWidth(), 40);
+        blueBar.setId("bar");
+        blueBar.setPrefSize(scene.getWidth(), 50);
         blueBar.setLayoutY(100);
 
         root.getChildren().add(blueBar);
+    }
+
+    private void fade(Scene scene) {
+        // Fading background
+        Color lightBlueColor = Color.SKYBLUE;
+        Color whiteColor = Color.WHITE;
+        scene.setFill(new javafx.scene.paint.LinearGradient(0, 0, 1, 1, true, javafx.scene.paint.CycleMethod.NO_CYCLE,
+                new javafx.scene.paint.Stop(0, lightBlueColor), new javafx.scene.paint.Stop(1, whiteColor)));
+
     }
     private void displayTitle(Pane root, Scene scene) {
         String titleText = translate(bundleKey());

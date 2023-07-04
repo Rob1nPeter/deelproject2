@@ -22,7 +22,7 @@ public class StartPagina extends Application {
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
 
-        test.achtergrond(stage);
+        test.achtergrond(stage, root , scene);
 
 
     }

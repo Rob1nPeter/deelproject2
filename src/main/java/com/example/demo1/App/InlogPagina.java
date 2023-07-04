@@ -16,7 +16,7 @@ public class InlogPagina extends Application {
         InlogPaginaLayout test2 = new InlogPaginaLayout();
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
-        test.achtergrond(stage);
+        test.achtergrond(stage, root, scene);
         test2.loginCirkel(root, scene);
         test2.loginButton(root, scene);
         test2.RegistreerButton(root, scene);
