@@ -1,13 +1,10 @@
 package com.example.demo1.templatemethod;
+import com.example.demo1.Thema;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -27,6 +24,7 @@ public abstract class TemplateMethod
         fade(scene);
         displayTitle(root, scene);
 
+        Thema.keepTheme(scene);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -53,7 +51,7 @@ public abstract class TemplateMethod
     private void blueBar(Pane root, Scene scene) {
         // Dark blue bar below the logo
         Pane blueBar = new Pane();
-        blueBar.setBackground(new Background(new BackgroundFill(Color.DARKBLUE, null, null)));
+        blueBar.setId("bar");
         blueBar.setPrefSize(scene.getWidth(), 50);
         blueBar.setLayoutY(100);
 
@@ -71,10 +69,7 @@ public abstract class TemplateMethod
         String titleText = bundleKey();
 
         Text title = new Text(titleText);
-        title.setFont(Font.font("Oswald", FontWeight.EXTRA_BOLD, 50));
-        title.setFill(Color.WHITE);
-        title.setStroke(Color.SKYBLUE);
-        title.setStrokeWidth(1);
+        title.setId("titleText");
         title.setX((scene.getWidth() - title.getLayoutBounds().getWidth()) / 2);
         title.setY(70);
 

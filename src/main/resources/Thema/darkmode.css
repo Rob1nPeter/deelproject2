@@ -1,0 +1,25 @@
+.root{
+    -fx-background-color:black;
+}
+.label{
+    -fx-text-fill: white;
+}
+.button{
+    -fx-text-fill: white;
+    -fx-background-color: #343434;
+}
+.text-field{
+    -fx-text-fill: white;
+    -fx-background-color: #343434;
+}
+#bar{
+    -fx-background-color: white;
+}
+#titleText{
+    -fx-font-family: "Oswald";
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+    -fx-stroke: skyblue;
+    -fx-stroke-width: 1;
+}

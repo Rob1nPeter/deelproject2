@@ -1,0 +1,14 @@
+.root{
+    -fx-background-color:azure;
+}
+#bar{
+    -fx-background-color: darkblue;
+}
+#titleText{
+    -fx-font-family: "Oswald";
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+    -fx-stroke: skyblue;
+    -fx-stroke-width: 1;
+}
