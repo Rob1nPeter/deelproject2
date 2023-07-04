@@ -8,8 +8,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class InlogPaginaLayout {
+    public void inlogPaginaLayout(Pane root){
+        loginCirkel(root);
+        gebruikersNaam(root);
+        Wachtwoord(root);
+        loginButton(root);
+        RegistreerButton(root);
+    }
 
-    public void gebruikersNaam(Pane root, Scene scene){
+    public void gebruikersNaam(Pane root){
         TextField gebruikersNaamLogin = new TextField();
         gebruikersNaamLogin.setPromptText("gebruikersnaam");
         gebruikersNaamLogin.setLayoutX(280);
@@ -18,7 +25,7 @@ public class InlogPaginaLayout {
         root.getChildren().add(gebruikersNaamLogin);
     }
 
-    public void Wachtwoord(Pane root, Scene scene){
+    public void Wachtwoord(Pane root){
         TextField wachtwoordLogin = new TextField();
         wachtwoordLogin.setPromptText("wachtwoord");
         wachtwoordLogin.setLayoutX(280);
@@ -26,7 +33,7 @@ public class InlogPaginaLayout {
         wachtwoordLogin.setPrefSize(250, 30);
         root.getChildren().add(wachtwoordLogin);
     }
-    public void loginButton(Pane root, Scene scene){
+    public void loginButton(Pane root){
         Button loginButton = new Button("Login ");
         loginButton.setLayoutX(360);
         loginButton.setLayoutY(450);
@@ -34,7 +41,7 @@ public class InlogPaginaLayout {
         root.getChildren().add(loginButton);
     }
 
-    public void RegistreerButton(Pane root, Scene scene){
+    public void RegistreerButton(Pane root){
         Button RegistreerButton = new Button("Registreer ");
         RegistreerButton.setLayoutX(360);
         RegistreerButton.setLayoutY(480);
@@ -42,7 +49,7 @@ public class InlogPaginaLayout {
         root.getChildren().add(RegistreerButton);
     }
 
-    public void loginCirkel(Pane root, Scene scene){
+    public void loginCirkel(Pane root){
         Circle circle2 = new Circle();
         circle2.setCenterX(400);
         circle2.setCenterY(380);

@@ -19,7 +19,6 @@ public abstract class TemplateMethod
         primaryStage.setTitle(translate(bundleKey()));
         logo(root);
         blueBar(root, scene);
-        fade(scene);
         displayTitle(root, scene);
 
         Thema.keepTheme(scene);
@@ -55,14 +54,6 @@ public abstract class TemplateMethod
         root.getChildren().add(blueBar);
     }
 
-    private void fade(Scene scene) {
-        // Fading background
-        Color lightBlueColor = Color.SKYBLUE;
-        Color whiteColor = Color.WHITE;
-        scene.setFill(new javafx.scene.paint.LinearGradient(0, 0, 1, 1, true, javafx.scene.paint.CycleMethod.NO_CYCLE,
-                new javafx.scene.paint.Stop(0, lightBlueColor), new javafx.scene.paint.Stop(1, whiteColor)));
-
-    }
     private void displayTitle(Pane root, Scene scene) {
         String titleText = translate(bundleKey());
 
