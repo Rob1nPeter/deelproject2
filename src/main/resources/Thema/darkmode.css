@@ -1,5 +1,6 @@
 .root{
-    -fx-background-color:black;
+    -fx-background-color: linear-gradient(to bottom right, darkblue, black);
+
 }
 .label{
     -fx-text-fill: white;
@@ -13,7 +14,7 @@
     -fx-background-color: #343434;
 }
 #bar{
-    -fx-background-color: white;
+    -fx-background-color: darkblue;
 }
 #titleText{
     -fx-font-family: "Oswald";

@@ -18,9 +18,11 @@ public class StartPagina extends Application {
     public void start(Stage stage){
         TemplateMethod test = new StartPaginaTemplate();
         StartPaginaLayout test2 = new StartPaginaLayout();
+
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
-        test.achtergrond(stage, root, scene);
+
+        test.achtergrond(stage);
 
 
     }

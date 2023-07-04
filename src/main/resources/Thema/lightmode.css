@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color:azure;
+    -fx-background-color: linear-gradient(to bottom right, skyblue, white);
 }
 #bar{
     -fx-background-color: darkblue;
