@@ -7,4 +7,6 @@ public class StartPaginaTemplate extends TemplateMethod
     protected String bundleKey() {
         return "startPagina";
     }
+
+
 }

@@ -38,7 +38,7 @@ public abstract class TemplateMethod
     }
     private void logo(Pane root) {
         // Load the logo image using the content path
-        String absolutePath = "file:///C:/Users/Robin/IdeaProjects/demo1/src/main/java/com/example/demo1/logo/logo-42-dont-panic.png";
+        String absolutePath = "logo-42-dont-panic.png";
         Image logoImage = new Image(absolutePath);
 
         // Create an ImageView to display the logo
