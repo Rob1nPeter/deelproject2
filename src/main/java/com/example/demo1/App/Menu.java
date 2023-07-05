@@ -16,7 +16,7 @@ public class Menu extends Application {
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
         test.achtergrond(stage, root, scene);
-        test2.menuLayout(root);
+        test2.menuLayout(root, stage);
     }
 
 }

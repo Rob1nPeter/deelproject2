@@ -4,20 +4,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class MenuLayout extends Layout {
 
-    public void menuLayout(Pane root){
+    public void menuLayout(Pane root, Stage stage){
         List<String> buttonKeys = Arrays.asList("instellingen", "logUit", "chatbot");
-        maakButton(root, buttonKeys);
+        maakButton(root, buttonKeys, stage);
         terugKnop(root);
 
     }
 
     @Override
-    protected void setMethode(Button button, List<String> buttonKeys) {
+    protected void setMethode(Button button, List<String> buttonKeys, Stage stage) {
         for (String buttonKey : buttonKeys) {
             switch (buttonKey){
                 case "instellingen": button.setOnAction(e -> openInlogPagina());

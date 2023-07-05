@@ -4,18 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class InstellingenLayout extends Layout{
-    public void instellingenLayout(Pane root){
+    public void instellingenLayout(Pane root, Stage stage){
         List<String> buttonKeys = Arrays.asList("thema", "taal");
-        maakButton(root, buttonKeys);
+        maakButton(root, buttonKeys, stage);
         terugKnop(root);
     }
 
     @Override
-    protected void setMethode(Button button, List<String> buttonKeys) {
+    protected void setMethode(Button button, List<String> buttonKeys, Stage stage) {
         for (String buttonKey : buttonKeys) {
             switch (buttonKey){
                 case "thema": button.setOnAction(e -> openInlogPagina());

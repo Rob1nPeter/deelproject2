@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.ResourceBundle;
@@ -33,7 +34,7 @@ public abstract class Layout {
         return bundle.getString(bundleKey);
     }
 
-    public void maakButton(Pane root, List<String> buttonKeys) {
+    public void maakButton(Pane root, List<String> buttonKeys, Stage stage) {
         for (String buttonKey : buttonKeys) {
             Button button = new Button(translate(buttonKey));
             button.setId("button");
@@ -41,12 +42,12 @@ public abstract class Layout {
             button.setLayoutY(setLayoutY(buttonKeys.indexOf(buttonKey)));
             button.setPrefSize(110, 30);
 
-            setMethode(button, buttonKeys);
+            setMethode(button, buttonKeys, stage);
 
             root.getChildren().add(button);
         }
     }
-    protected abstract void setMethode(Button button, List<String> buttonKeys);
+    protected abstract void setMethode(Button button, List<String> buttonKeys, Stage stage);
 
     public void textfield(Pane root, List<String> textfields)
     {

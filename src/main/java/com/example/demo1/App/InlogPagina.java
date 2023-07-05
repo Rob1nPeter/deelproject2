@@ -18,6 +18,6 @@ public class InlogPagina extends Application {
         Scene scene = new Scene(root, 800, 600);
 
         templateMethod.achtergrond(stage, root, scene);
-        inlogPaginaLayout.inlogPaginaLayout(root);
+        inlogPaginaLayout.inlogPaginaLayout(root, stage);
     }
 }

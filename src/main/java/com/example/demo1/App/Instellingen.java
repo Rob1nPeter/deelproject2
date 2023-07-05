@@ -17,7 +17,7 @@ public class Instellingen extends Application {
         Scene scene = new Scene(root, 800, 600);
         test.achtergrond(stage, root, scene);
 
-        test2.instellingenLayout(root);
+        test2.instellingenLayout(root, stage);
 
     }
 }
