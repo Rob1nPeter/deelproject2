@@ -4,7 +4,6 @@ package com.example.demo1;
 import javafx.scene.Scene;
 
 import java.io.File;
-import java.util.Objects;
 
 public abstract class Theme {
     public static boolean darkMode = false;

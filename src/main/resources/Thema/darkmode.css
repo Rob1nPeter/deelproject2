@@ -5,10 +5,6 @@
 .label{
     -fx-text-fill: white;
 }
-.button{
-    -fx-text-fill: white;
-    -fx-background-color: #343434;
-}
 .text-field{
     -fx-text-fill: white;
     -fx-background-color: #343434;
@@ -23,4 +19,12 @@
     -fx-fill: white;
     -fx-stroke: skyblue;
     -fx-stroke-width: 1;
+}
+#button{
+    -fx-background-color: darkblue;
+    -fx-font-family: "Oswald";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+
 }
