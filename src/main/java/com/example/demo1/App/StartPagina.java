@@ -24,7 +24,5 @@ public class StartPagina extends Application {
 
         test.achtergrond(stage, root , scene);
         test2.starPaginaLayout(root, stage);
-
-
     }
 }

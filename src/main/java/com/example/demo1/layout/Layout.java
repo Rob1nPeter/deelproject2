@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.example.demo1.Logica.TaalLogica.baseNaam;
+import static com.example.demo1.Logica.TaalLogica.taal;
+
 public abstract class Layout {
     public void layoutCirkel(Pane root) {
         Circle circle2 = new Circle();
@@ -30,7 +33,7 @@ public abstract class Layout {
         root.getChildren().add(circlewhite2);
     }
     protected String translate(String bundleKey){
-        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
+        ResourceBundle bundle = ResourceBundle.getBundle(taal());
         return bundle.getString(bundleKey);
     }
 

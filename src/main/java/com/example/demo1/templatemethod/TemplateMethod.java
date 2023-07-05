@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
+import static com.example.demo1.Logica.TaalLogica.taal;
+
 public abstract class TemplateMethod
 {
     public void achtergrond(Stage primaryStage, Pane root, Scene scene){
@@ -27,7 +29,7 @@ public abstract class TemplateMethod
     }
     protected abstract String bundleKey();
     private String translate(String bundleKey){
-        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
+        ResourceBundle bundle = ResourceBundle.getBundle(taal());
         return bundle.getString(bundleKey);
     }
     private void logo(Pane root) {
