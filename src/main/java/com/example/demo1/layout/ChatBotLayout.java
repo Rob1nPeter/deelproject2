@@ -40,6 +40,11 @@ public class ChatBotLayout {
         chatList.setLayoutX(25);
         chatList.setLayoutY(160);
         chatList.setPrefSize(230,360);
+        chatList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                selectChat(newValue,invoer);
+            }
+        });
         root.getChildren().add(chatList);
         nieuwechat(chatList);
     }

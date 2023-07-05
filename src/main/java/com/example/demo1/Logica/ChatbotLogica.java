@@ -6,6 +6,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -47,6 +48,11 @@ public abstract class ChatbotLogica {
                 listView.getItems().set(listView.getSelectionModel().getSelectedIndex(), newChatName);
             });
         }
+    }
+    public static void selectChat(String chatName, TextField invoer) {
+        TextArea selectedChat = chatAreas.get(chatName);
+        BorderPane mainPane = (BorderPane) invoer.getParent().getParent();
+        mainPane.setCenter(selectedChat);
     }
     public static void sendMessage(TextField invoer, TextArea uitvoer,ListView<String> listView){
         String chatName = listView.getSelectionModel().getSelectedItem();
