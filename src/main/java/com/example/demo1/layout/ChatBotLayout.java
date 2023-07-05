@@ -1,5 +1,6 @@
 package com.example.demo1.layout;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -14,6 +15,8 @@ public class ChatBotLayout {
         chatGptInvoerBox(root);
         chatGptUitvoerBox(root);
         chatGptListView(root);
+        aanmakenchat(root);
+        hernoemChat(root);
     }
 
     public void chatGptInvoerBox(Pane root){
@@ -57,5 +60,24 @@ public class ChatBotLayout {
 
         root.getChildren().add(circle2);
         root.getChildren().add(circlewhite2);
+    }
+
+    public void aanmakenchat(Pane root){
+        Button button = new Button("Nieuw");
+        button.setId("button");
+        button.setLayoutX(50);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
+    }
+    public void hernoemChat(Pane root){
+        Button button = new Button("Hernoem");
+        button.setId("button");
+        button.setLayoutX(200);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
     }
 }
