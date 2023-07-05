@@ -7,7 +7,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.Arrays;
 import java.util.List;
-import static com.example.demo1.Logica.MenuLogica.openMenu;
+
+import static com.example.demo1.Logica.LoginPaginaLogica.openInlogPagina;
 import static com.example.demo1.Logica.RegistratiePaginaLogica.openRegistratiePagina;
 import static com.example.demo1.Logica.StartPaginaLogica.openStartPagina;
 import static java.util.Arrays.asList;
@@ -27,7 +28,7 @@ public class InlogPaginaLayout extends Layout{
     protected void setMethode(Button button, Stage stage, String buttonKey) {
 
         switch (buttonKey) {
-            case "login" -> button.setOnAction(e -> openMenu(stage));
+            case "login" -> button.setOnAction(e -> openInlogPagina(stage));
             case "registreer" -> button.setOnAction(e -> openRegistratiePagina(stage));
         }
     }
