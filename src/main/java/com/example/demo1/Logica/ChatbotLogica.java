@@ -1,8 +1,10 @@
 package com.example.demo1.Logica;
 
 import com.example.demo1.App.Chatbot;
+import com.example.demo1.Query.*;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
@@ -42,6 +44,21 @@ public abstract class ChatbotLogica {
                 chatAreas.put(newChatName, chatArea);
                 listView.getItems().set(listView.getSelectionModel().getSelectedIndex(), newChatName);
             });
+        }
+    }
+    public static void sendMessage(TextField invoer, TextArea uitvoer,ListView<String> listView){
+        String chatName = listView.getSelectionModel().getSelectedItem();
+
+        if (chatName != null) {
+            String message = invoer.getText();
+            QueryResolutionStrategy<String, String> stringToStringStrategy = new StringToStringStrategy();
+            QueryResolutionForm<String> stringQueryForm = new QueryResolutionForm<>(message);
+            QueryResolutionResult<String> stringResolutionResult = stringToStringStrategy.resolve(stringQueryForm);
+            String resolvedStringData = stringResolutionResult.getData();
+            uitvoer.appendText("U: " + message + "\n");
+            invoer.clear();
+
+            uitvoer.appendText(resolvedStringData +"\n");
         }
     }
 }

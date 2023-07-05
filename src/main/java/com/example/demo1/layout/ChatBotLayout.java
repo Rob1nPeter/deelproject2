@@ -12,6 +12,8 @@ import static com.example.demo1.Logica.ChatbotLogica.*;
 
 public class ChatBotLayout {
     private ListView<String> chatList;
+    private TextField invoer;
+    private TextArea uitvoer;
 
     public void chatBotLayout(Pane root){
         chatGptCirkel(root);
@@ -20,10 +22,11 @@ public class ChatBotLayout {
         chatGptListView(root);
         aanmakenchat(root);
         hernoemChat(root);
+        stuurMessage(root);
     }
 
     public void chatGptInvoerBox(Pane root){
-        TextField invoer = new TextField();
+        invoer = new TextField();
         invoer.setPromptText("voer uw vraag in aan chatgpt");
         invoer.setLayoutX(25);
         invoer.setLayoutY(530);
@@ -41,11 +44,11 @@ public class ChatBotLayout {
     }
 
     public void chatGptUitvoerBox(Pane root){
-        TextArea uitvoer = new TextArea();
+        uitvoer = new TextArea();
         uitvoer.setLayoutX(400);
         uitvoer.setLayoutY(200);
         uitvoer.setPrefSize(390,390);
-        uitvoer.setStyle("-fx-opacity: 0; -fx-text-fill: black;");
+        uitvoer.setStyle("-fx-text-fill: black;");
         uitvoer.setEditable(false);
         root.getChildren().add(uitvoer);
     }
@@ -85,4 +88,15 @@ public class ChatBotLayout {
         root.getChildren().add(button);
         button.setOnAction(e -> renameChat(chatList));
     }
+    public void stuurMessage(Pane root){
+        Button button = new Button("Stuur Message");
+        button.setId("button");
+        button.setLayoutX(350);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
+        button.setOnAction(e -> sendMessage(invoer,uitvoer,chatList));
+    }
+
 }

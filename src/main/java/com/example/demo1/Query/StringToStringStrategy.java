@@ -10,9 +10,9 @@ public class StringToStringStrategy implements QueryResolutionStrategy<String,St
 
         // Perform the query resolution logic based on your custom implementation
         if(queryData.equals("hallo")){
-            resolvedData = "Hey";
+            resolvedData = "Bot: Hey";
         } else{
-            resolvedData = "Wat bedoel je " + queryData + "?";
+            resolvedData = "Bot: Wat bedoel je met" + queryData + "?";
         }
 
 
