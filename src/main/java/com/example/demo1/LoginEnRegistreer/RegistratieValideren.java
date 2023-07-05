@@ -15,9 +15,9 @@ public class RegistratieValideren {
         accounts = new HashMap<>();
     }
 
-    public void registratieValideren(String gebruikersnaam, String wachtwoord) {
+    public static void registratieValideren(String gebruikersnaam, String wachtwoord) {
         accounts = laadAccountsUitBestand();
-        boolean registratieSuccess;
+        //boolean registratieSuccess;
         if (accounts.containsKey(gebruikersnaam)) {
             showAlert("Gebruikersnaam bestaat al");
         } else {
@@ -28,7 +28,7 @@ public class RegistratieValideren {
 
     }
 
-    private void showAlert(String message) {
+    private static void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Registratie");
         alert.setHeaderText(null);
