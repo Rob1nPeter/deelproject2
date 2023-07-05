@@ -10,7 +10,7 @@ public class FileToStringStrategy implements QueryResolutionStrategy<File, Strin
         String resolvedData;
 
         // Perform the query resolution logic based on your custom implementation
-        if (queryData.getName().endsWith(".png")) {
+        if (queryData.getName().endsWith(".PNG")) {
             resolvedData = "Mooie png";
         } else {
             resolvedData = queryData + queryData.getName();

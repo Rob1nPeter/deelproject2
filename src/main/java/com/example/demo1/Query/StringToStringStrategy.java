@@ -12,7 +12,7 @@ public class StringToStringStrategy implements QueryResolutionStrategy<String,St
         if(queryData.equals("hallo")){
             resolvedData = "Bot: Hey";
         } else{
-            resolvedData = "Bot: Wat bedoel je met" + queryData + "?";
+            resolvedData = "Bot: Wat bedoel je met " + queryData + "?";
         }
 
 

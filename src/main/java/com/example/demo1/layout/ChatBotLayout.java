@@ -23,6 +23,7 @@ public class ChatBotLayout {
         aanmakenchat(root);
         hernoemChat(root);
         stuurMessage(root);
+        stuurFile(root);
     }
 
     public void chatGptInvoerBox(Pane root){
@@ -89,7 +90,7 @@ public class ChatBotLayout {
         button.setOnAction(e -> renameChat(chatList));
     }
     public void stuurMessage(Pane root){
-        Button button = new Button("Stuur Message");
+        Button button = new Button("Message");
         button.setId("button");
         button.setLayoutX(350);
         button.setLayoutY(110);
@@ -97,6 +98,16 @@ public class ChatBotLayout {
 
         root.getChildren().add(button);
         button.setOnAction(e -> sendMessage(invoer,uitvoer,chatList));
+    }
+    public void stuurFile(Pane root){
+        Button button = new Button("Foto");
+        button.setId("button");
+        button.setLayoutX(500);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
+        button.setOnAction(e -> sendFile(uitvoer,chatList));
     }
 
 }

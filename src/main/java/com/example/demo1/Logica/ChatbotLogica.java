@@ -6,8 +6,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -61,4 +63,33 @@ public abstract class ChatbotLogica {
             uitvoer.appendText(resolvedStringData +"\n");
         }
     }
+    public static void sendFile(TextArea uitvoer,ListView<String> listView){
+        FileChooser fileChooser = new FileChooser();
+
+        Stage window = new Stage();
+        File selectedFile = fileChooser.showOpenDialog(window);
+
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Foto's", ".jpeg", ".jpg", ".png"));
+
+        if (selectedFile != null) {
+            String fileNaam = selectedFile.getName();
+            String bestandExtensie = fileNaam.substring(fileNaam.lastIndexOf(".") + 1);
+
+            String chatName = listView.getSelectionModel().getSelectedItem();
+
+            if (chatName != null) {
+                String message1 = "Bestand naam: " + fileNaam;
+                String message2 = "Bestand extensie: " + bestandExtensie;
+                QueryResolutionStrategy<File, String> fileQueryResolutionStrategy = new FileToStringStrategy();
+                QueryResolutionForm<File> fileQueryForm = new QueryResolutionForm<>(selectedFile);
+                QueryResolutionResult<String> fileResolutionResult = fileQueryResolutionStrategy.resolve(fileQueryForm);
+                // Hier wordt de file toegevoegd aan een QueryResolutionForm en wordt deze opgelost. Ik maak ook een kortere variabel naam voor de queryResolutionResult.
+                String resolvedFileData = fileResolutionResult.getData();
+                // hier wordt de data teruggegeven.
+                uitvoer.appendText("U: " + message1 + "\n" + message2 + "\n");
+                uitvoer.appendText(resolvedFileData + "\n");
+            }
+        }
+    }
+
 }
