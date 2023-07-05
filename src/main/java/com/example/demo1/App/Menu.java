@@ -1,9 +1,7 @@
 package com.example.demo1.App;
 
 import com.example.demo1.layout.MenuPaginaLayout;
-import com.example.demo1.layout.RegistratiePaginaLayout;
 import com.example.demo1.templatemethod.MenuPaginaTemplate;
-import com.example.demo1.templatemethod.RegistratiePaginaTemplate;
 import com.example.demo1.templatemethod.TemplateMethod;
 import javafx.application.Application;
 import javafx.scene.Scene;
