@@ -1,5 +1,7 @@
 package com.example.demo1.layout;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import java.util.Arrays;
@@ -20,6 +22,10 @@ public class InstellingenLayout extends Layout{
                 case "taal": button.setOnAction(e -> openInlogPagina());
             }
         }
+    }
+    @Override
+    protected EventHandler<ActionEvent> setMethodeTerugKnop() {
+        return (e -> openInlogPagina());
     }
     public void openInlogPagina(){
         System.out.println("CHECK");

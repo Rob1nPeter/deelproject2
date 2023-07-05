@@ -1,6 +1,8 @@
 package com.example.demo1.layout;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -28,6 +30,11 @@ public class InlogPaginaLayout extends Layout{
                 case "registreer": button.setOnAction(e -> openInlogPagina());
             }
         }
+    }
+
+    @Override
+    protected EventHandler<ActionEvent> setMethodeTerugKnop() {
+        return (e -> openInlogPagina());
     }
 
     public void openInlogPagina(){

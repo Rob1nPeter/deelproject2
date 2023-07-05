@@ -1,5 +1,7 @@
 package com.example.demo1.layout;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import java.util.List;
@@ -23,6 +25,10 @@ public class StartPaginaLayout extends Layout {
       public void openInlogPagina(){
          System.out.println("CHECK");
       }
+   @Override
+   protected EventHandler<ActionEvent> setMethodeTerugKnop() {
+      return (e -> openInlogPagina());
+   }
 
    @Override
    protected int setLayoutX(int buttonIndex) {
