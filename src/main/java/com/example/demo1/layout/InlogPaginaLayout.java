@@ -21,7 +21,7 @@ import static java.util.Arrays.asList;
 public class InlogPaginaLayout extends Layout{
     public void inlogPaginaLayout(Pane root, Stage stage){
         layoutCirkel(root);
-        testing(root,stage);
+        logina(root,stage);
         //List<String> textfields = asList("gebruikersnaam", "wachtwoord");
         //textfield(root, textfields);
         List<String> buttonKeys = Arrays.asList( "registreer");
@@ -38,7 +38,7 @@ public class InlogPaginaLayout extends Layout{
         }
     }
 
-    public void testing(Pane root,Stage stage)
+    public void logina(Pane root,Stage stage)
     {
         TextField username = new TextField();
         username.setPromptText(translate("login"));
