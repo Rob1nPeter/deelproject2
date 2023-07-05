@@ -1,6 +1,7 @@
 package com.example.demo1.layout;
 
 
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import java.util.Arrays;
@@ -16,6 +17,21 @@ public class InlogPaginaLayout extends Layout{
         textfield(root, textfields);
         List<String> buttonKeys = Arrays.asList("login", "registreer");
         maakButton(root, buttonKeys);
+        terugKnop(root);
+    }
+
+    @Override
+    protected void setMethode(Button button, List<String> buttonKeys) {
+        for (String buttonKey : buttonKeys) {
+            switch (buttonKey){
+                case "login": button.setOnAction(e -> openInlogPagina());
+                case "registreer": button.setOnAction(e -> openInlogPagina());
+            }
+        }
+    }
+
+    public void openInlogPagina(){
+        System.out.println("CHECK");
     }
 
     @Override

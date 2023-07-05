@@ -39,9 +39,12 @@ public abstract class Layout {
             button.setLayoutY(setLayoutY(buttonKeys.indexOf(buttonKey)));
             button.setPrefSize(110, 30);
 
+            setMethode(button, buttonKeys);
+
             root.getChildren().add(button);
         }
     }
+    protected abstract void setMethode(Button button, List<String> buttonKeys);
 
     public void textfield(Pane root, List<String> textfields)
     {
@@ -53,6 +56,15 @@ public abstract class Layout {
             textfield.setPrefSize(250, 30);
             root.getChildren().add(textfield);
         }
+    }
+
+    public void terugKnop(Pane root){
+        Button button = new Button(translate("terug"));
+        button.setId("button");
+        button.setLayoutX(690);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+        root.getChildren().add(button);
     }
 
     protected abstract int setLayoutX(int buttonIndex);
