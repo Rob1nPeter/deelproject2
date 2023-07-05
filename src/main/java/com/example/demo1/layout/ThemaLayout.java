@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.example.demo1.Logica.InstellingenLogica.openInstellingen;
 import static com.example.demo1.Logica.TaalLogica.openTaal;
-import static com.example.demo1.Logica.ThemaLogica.openThema;
+import static com.example.demo1.Logica.ThemaLogica.*;
 
 public class ThemaLayout extends Layout{
     public void taalLayout(Pane root, Stage stage){
@@ -34,7 +34,7 @@ public class ThemaLayout extends Layout{
         button.setLayoutY(380);
         button.setPrefSize(110, 30);
         root.getChildren().add(button);
-        button.setOnAction(e -> openThema(stage));
+        button.setOnAction(e -> lightMode(stage));
 
     }
     public void donkereModus(Pane root, Stage stage){
@@ -44,7 +44,7 @@ public class ThemaLayout extends Layout{
         button.setLayoutY(420);
         button.setPrefSize(110, 30);
         root.getChildren().add(button);
-        button.setOnAction(e -> openThema(stage));
+        button.setOnAction(e -> darkMode(stage));
 
     }
 

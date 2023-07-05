@@ -15,6 +15,8 @@ public class StringToStringStrategy implements QueryResolutionStrategy<String,St
             resolvedData = "Wat bedoel je " + queryData + "?";
         }
 
+
+
         // Return the query resolution result
         return new QueryResolutionResult<>(resolvedData);
     }

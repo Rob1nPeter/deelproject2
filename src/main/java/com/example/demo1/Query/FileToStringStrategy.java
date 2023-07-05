@@ -7,9 +7,9 @@ public class FileToStringStrategy implements QueryResolutionStrategy<File, Strin
     @Override
     public QueryResolutionResult<String> resolve(QueryResolutionForm<File> form) {
         File queryData = form.getQueryData();
+        String resolvedData;
 
         // Perform the query resolution logic based on your custom implementation
-        String resolvedData;
         if (queryData.getName().endsWith(".png")) {
             resolvedData = "Mooie png";
         } else {

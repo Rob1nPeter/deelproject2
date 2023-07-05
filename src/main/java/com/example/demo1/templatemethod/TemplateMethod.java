@@ -1,5 +1,5 @@
 package com.example.demo1.templatemethod;
-import com.example.demo1.Thema;
+import com.example.demo1.Theme;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,7 +23,7 @@ public abstract class TemplateMethod
         blueBar(root, scene);
         displayTitle(root, scene);
 
-        Thema.keepTheme(scene);
+        Theme.keepTheme(scene);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
