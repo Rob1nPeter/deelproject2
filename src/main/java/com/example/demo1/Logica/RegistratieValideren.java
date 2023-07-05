@@ -17,19 +17,17 @@ public class RegistratieValideren {
         accounts = new HashMap<>();
     }
 
-    public boolean registratieValideren(String gebruikersnaam, String wachtwoord) {
+    public void registratieValideren(String gebruikersnaam, String wachtwoord) {
         accounts = laadAccountsUitBestand();
         boolean registratieSuccess;
         if (accounts.containsKey(gebruikersnaam)) {
             showAlert("Gebruikersnaam bestaat al");
-            registratieSuccess = false;
         } else {
             accounts.put(gebruikersnaam, wachtwoord);
             slaAccountsOpNaarBestand();
             showAlert("Registratie succesvol");
-            registratieSuccess = true;
         }
-        return registratieSuccess;
+
     }
 
     private void showAlert(String message) {
