@@ -54,6 +54,7 @@ public abstract class TemplateMethod
         root.getChildren().add(blueBar);
     }
 
+
     private void displayTitle(Pane root, Scene scene) {
         String titleText = translate(bundleKey());
 

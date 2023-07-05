@@ -38,6 +38,7 @@ public class InlogPaginaLayout {
         loginButton.setLayoutX(360);
         loginButton.setLayoutY(450);
         loginButton.setPrefSize(100,25);
+        loginButton.setOnAction(e-> System.out.println("b"));
         root.getChildren().add(loginButton);
     }
 
