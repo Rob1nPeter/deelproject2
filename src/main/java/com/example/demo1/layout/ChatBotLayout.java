@@ -8,7 +8,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import static com.example.demo1.Logica.ChatbotLogica.*;
+
 public class ChatBotLayout {
+    private ListView<String> chatList;
 
     public void chatBotLayout(Pane root){
         chatGptCirkel(root);
@@ -29,11 +32,12 @@ public class ChatBotLayout {
     }
 
     public void chatGptListView(Pane root){
-        ListView chats = new ListView();
-        chats.setLayoutX(25);
-        chats.setLayoutY(160);
-        chats.setPrefSize(230,360);
-        root.getChildren().add(chats);
+        chatList = new ListView<String>();
+        chatList.setLayoutX(25);
+        chatList.setLayoutY(160);
+        chatList.setPrefSize(230,360);
+        root.getChildren().add(chatList);
+        nieuwechat(chatList);
     }
 
     public void chatGptUitvoerBox(Pane root){
@@ -68,8 +72,8 @@ public class ChatBotLayout {
         button.setLayoutX(50);
         button.setLayoutY(110);
         button.setPrefSize(110, 30);
-
         root.getChildren().add(button);
+        button.setOnAction( e -> nieuwechat(chatList));
     }
     public void hernoemChat(Pane root){
         Button button = new Button("Hernoem");
@@ -79,5 +83,6 @@ public class ChatBotLayout {
         button.setPrefSize(110, 30);
 
         root.getChildren().add(button);
+        button.setOnAction(e -> renameChat(chatList));
     }
 }
