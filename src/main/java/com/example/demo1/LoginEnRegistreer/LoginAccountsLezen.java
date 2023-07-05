@@ -1,4 +1,4 @@
-package com.example.demo1.Logica;
+package com.example.demo1.LoginEnRegistreer;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,13 +1,11 @@
-package com.example.demo1.Logica;
+package com.example.demo1.LoginEnRegistreer;
 
 import javafx.scene.control.Alert;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import static com.example.demo1.Logica.LoginAccountsLezen.laadAccountsUitBestand;
-import static com.example.demo1.Logica.RegistratieAccountsWriten.slaAccountsOpNaarBestand;
+import static com.example.demo1.LoginEnRegistreer.LoginAccountsLezen.laadAccountsUitBestand;
+import static com.example.demo1.LoginEnRegistreer.RegistratieAccountsWriten.slaAccountsOpNaarBestand;
 
 
 public class RegistratieValideren {

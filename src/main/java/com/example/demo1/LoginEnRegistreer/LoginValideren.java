@@ -1,11 +1,11 @@
-package com.example.demo1.Logica;
+package com.example.demo1.LoginEnRegistreer;
 
+import com.example.demo1.Logica.MenuLogica;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.util.Map;
-import static com.example.demo1.Logica.LoginAccountsLezen.laadAccountsUitBestand;
-import static com.example.demo1.Logica.MenuLogica.openMenu;
+import static com.example.demo1.LoginEnRegistreer.LoginAccountsLezen.laadAccountsUitBestand;
 
 public class LoginValideren {
     Map<String, String> accounts;
@@ -13,16 +13,16 @@ public class LoginValideren {
         accounts = laadAccountsUitBestand();
     }
 
-    public static boolean loginValideren(String gebruikersnaam, String wachtwoord) {
+    public static void loginValideren(String gebruikersnaam, String wachtwoord, Stage stage) {
         Map<String, String> accounts = laadAccountsUitBestand();
-        boolean isSucces = false;
+        //boolean isSucces = false;
         if (accounts.containsKey(gebruikersnaam) && accounts.get(gebruikersnaam).equals(wachtwoord)) {
-            isSucces = true;
+            //isSucces = true;
+            MenuLogica.openMenu(stage);
         } else {
             showAlert("Ongeldige gebruikersnaam of wachtwoord");
 
         }
-        return isSucces;
     }
 
 
