@@ -1,6 +1,6 @@
 package com.example.demo1.App;
 
-import com.example.demo1.layout.chatBotPaginaLayout;
+import com.example.demo1.layout.ChatBotLayout;
 import com.example.demo1.templatemethod.ChatbotPaginaTemplate;
 import com.example.demo1.templatemethod.TemplateMethod;
 import javafx.application.Application;
@@ -12,7 +12,7 @@ public class Chatbot extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         TemplateMethod test = new ChatbotPaginaTemplate();
-        chatBotPaginaLayout test2 = new chatBotPaginaLayout();
+        ChatBotLayout test2 = new ChatBotLayout();
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
         test.achtergrond(stage, root, scene);

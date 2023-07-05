@@ -1,17 +1,19 @@
 package com.example.demo1.layout;
 
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class chatBotPaginaLayout {
+public class ChatBotLayout {
 
     public void chatBotPaginaLayout(Pane root){
         chatGptCirkel(root);
         chatGptInvoerBox(root);
         chatGptUitvoerBox(root);
+        chatGptListView(root);
     }
 
     public void chatGptInvoerBox(Pane root){
@@ -19,8 +21,16 @@ public class chatBotPaginaLayout {
         invoer.setPromptText("voer uw vraag in aan chatgpt");
         invoer.setLayoutX(25);
         invoer.setLayoutY(530);
-        invoer.setPrefSize(200,50);
+        invoer.setPrefSize(230,50);
         root.getChildren().add(invoer);
+    }
+
+    public void chatGptListView(Pane root){
+        ListView chats = new ListView();
+        chats.setLayoutX(25);
+        chats.setLayoutY(160);
+        chats.setPrefSize(230,360);
+        root.getChildren().add(chats);
     }
 
     public void chatGptUitvoerBox(Pane root){
