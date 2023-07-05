@@ -13,6 +13,7 @@ public class LoginValideren {
         accounts = laadAccountsUitBestand();
     }
 
+
     public static void loginValideren(String gebruikersnaam, String wachtwoord, Stage stage) {
         Map<String, String> accounts = laadAccountsUitBestand();
         //boolean isSucces = false;
@@ -24,7 +25,11 @@ public class LoginValideren {
 
         }
     }
-
+    public static boolean testLogin(String gebruikersnaam, String wachtwoord) {
+        Map<String, String> accounts = laadAccountsUitBestand();
+        //is basically if else.
+        return accounts.containsKey(gebruikersnaam) && accounts.get(gebruikersnaam).equals(wachtwoord);
+    }
 
 
     private static void showAlert(String message) {
