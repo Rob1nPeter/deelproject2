@@ -29,6 +29,7 @@ public class InlogPaginaLayout extends Layout{
 
         switch (buttonKey) {
             case "login" -> button.setOnAction(e -> openInlogPagina(stage));
+
             case "registreer" -> button.setOnAction(e -> openRegistratiePagina(stage));
         }
     }
