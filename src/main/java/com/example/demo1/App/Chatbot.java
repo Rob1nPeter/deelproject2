@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class Chatbot extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
 
         TemplateMethod test = new ChatbotPaginaTemplate();
         ChatBotLayout test2 = new ChatBotLayout();

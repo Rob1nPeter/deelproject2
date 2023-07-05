@@ -10,11 +10,13 @@ import javafx.stage.Stage;
 
 public class Menu extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         TemplateMethod test = new MenuPaginaTemplate();
         MenuLayout test2 = new MenuLayout();
+
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
+
         test.achtergrond(stage, root, scene);
         test2.menuLayout(root, stage);
     }

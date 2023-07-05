@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-import static com.example.demo1.Logica.LoginLogica.openInlogPagina;
+import static com.example.demo1.Logica.LoginPaginaLogica.openInlogPagina;
 
 
 public class StartPaginaLayout extends Layout {
@@ -19,11 +19,9 @@ public class StartPaginaLayout extends Layout {
    }
 
       @Override
-      protected void setMethode(Button button, List<String> buttonKeys, Stage stage) {
-         for (String buttonKey : buttonKeys) {
-            if (buttonKey.equals("welkom")) {
-               button.setOnAction(e -> openInlogPagina(stage));
-            }
+      protected void setMethode(Button button, Stage stage, String buttonKey) {
+         if (buttonKey.equals("welkom")) {
+            button.setOnAction(e -> openInlogPagina(stage));
          }
       }
 
@@ -32,7 +30,7 @@ public class StartPaginaLayout extends Layout {
       System.out.println("test");
    }
    @Override
-   protected EventHandler<ActionEvent> setMethodeTerugKnop() {
+   protected EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage) {
       return (e -> placeholder());
    }
 

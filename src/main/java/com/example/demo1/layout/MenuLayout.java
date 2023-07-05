@@ -9,31 +9,29 @@ import javafx.stage.Stage;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.demo1.Logica.ChatbotLogica.openChatbot;
+import static com.example.demo1.Logica.InstellingenLogica.openInstellingen;
+import static com.example.demo1.Logica.LoginPaginaLogica.openInlogPagina;
+
 public class MenuLayout extends Layout {
 
     public void menuLayout(Pane root, Stage stage){
-        List<String> buttonKeys = Arrays.asList("instellingen", "logUit", "chatbot");
+        List<String> buttonKeys = Arrays.asList("instellingen", "chatbot");
         maakButton(root, buttonKeys, stage);
-        terugKnop(root);
+        terugKnop(root, stage);
 
     }
 
     @Override
-    protected void setMethode(Button button, List<String> buttonKeys, Stage stage) {
-        for (String buttonKey : buttonKeys) {
-            switch (buttonKey){
-                case "instellingen": button.setOnAction(e -> openInlogPagina());
-                case "logUit": button.setOnAction(e -> openInlogPagina());
-                case "chatbot": button.setOnAction(e -> openInlogPagina());
-            }
+    protected void setMethode(Button button, Stage stage, String buttonKey) {
+        switch (buttonKey) {
+            case "chatbot" -> button.setOnAction(e -> openChatbot(stage));
+            case "instellingen" -> button.setOnAction(e -> openInstellingen(stage));
         }
     }
     @Override
-    protected EventHandler<ActionEvent> setMethodeTerugKnop() {
-        return (e -> openInlogPagina());
-    }
-    public void openInlogPagina(){
-        System.out.println("CHECK");
+    protected EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage) {
+        return (e -> openInlogPagina(stage));
     }
 
     @Override

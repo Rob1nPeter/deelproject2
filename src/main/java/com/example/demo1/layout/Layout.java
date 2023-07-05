@@ -42,12 +42,12 @@ public abstract class Layout {
             button.setLayoutY(setLayoutY(buttonKeys.indexOf(buttonKey)));
             button.setPrefSize(110, 30);
 
-            setMethode(button, buttonKeys, stage);
+            setMethode(button, stage, buttonKey);
 
             root.getChildren().add(button);
         }
     }
-    protected abstract void setMethode(Button button, List<String> buttonKeys, Stage stage);
+    protected abstract void setMethode(Button button, Stage stage, String naam);
 
     public void textfield(Pane root, List<String> textfields)
     {
@@ -61,18 +61,18 @@ public abstract class Layout {
         }
     }
 
-    public void terugKnop(Pane root){
+    public void terugKnop(Pane root, Stage stage){
         Button button = new Button(translate("terug"));
         button.setId("button");
         button.setLayoutX(690);
         button.setLayoutY(110);
         button.setPrefSize(110, 30);
 
-        button.setOnAction(setMethodeTerugKnop());
+        button.setOnAction(setMethodeTerugKnop(stage));
 
         root.getChildren().add(button);
     }
-    protected abstract EventHandler<ActionEvent> setMethodeTerugKnop();
+    protected abstract EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage);
 
     protected abstract int setLayoutX(int buttonIndex);
     protected abstract int setLayoutY(int buttonIndex);
