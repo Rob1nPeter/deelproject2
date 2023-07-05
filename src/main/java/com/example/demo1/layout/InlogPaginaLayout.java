@@ -1,75 +1,29 @@
 package com.example.demo1.layout;
 
-import javafx.scene.control.Button;
+
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.ResourceBundle;
+import static java.util.Arrays.asList;
 
 
-public class InlogPaginaLayout {
+public class InlogPaginaLayout extends Layout{
     public void inlogPaginaLayout(Pane root){
-        loginCirkel(root);
-        gebruikersNaam(root);
-        Wachtwoord(root);
-        loginButton(root);
-        RegistreerButton(root);
+        layoutCirkel(root);
+        List<String> textfields = asList("gebruikersnaam", "wachtwoord");
+        textfield(root, textfields);
+        List<String> buttonKeys = Arrays.asList("login", "registreer");
+        maakButton(root, buttonKeys);
     }
 
-    public void gebruikersNaam(Pane root){
-        TextField gebruikersNaamLogin = new TextField();
-        gebruikersNaamLogin.setPromptText(translate("gebruikersnaam"));
-        gebruikersNaamLogin.setLayoutX(280);
-        gebruikersNaamLogin.setLayoutY(310);
-        gebruikersNaamLogin.setPrefSize(250, 30);
-        root.getChildren().add(gebruikersNaamLogin);
+    @Override
+    protected int setLayoutX(int buttonKey) {
+        return 350;
     }
-
-    public void Wachtwoord(Pane root){
-        TextField wachtwoordLogin = new TextField();
-        wachtwoordLogin.setPromptText(translate("wachtwoord"));
-        wachtwoordLogin.setLayoutX(280);
-        wachtwoordLogin.setLayoutY(370);
-        wachtwoordLogin.setPrefSize(250, 30);
-        root.getChildren().add(wachtwoordLogin);
-    }
-    public void loginButton(Pane root){
-        Button loginButton = new Button(translate("login"));
-        loginButton.setLayoutX(360);
-        loginButton.setLayoutY(450);
-        loginButton.setPrefSize(100,25);
-        loginButton.setOnAction(e-> System.out.println("b"));
-        root.getChildren().add(loginButton);
-    }
-
-    public void RegistreerButton(Pane root){
-        Button RegistreerButton = new Button(translate("registreer"));
-        RegistreerButton.setLayoutX(360);
-        RegistreerButton.setLayoutY(480);
-        RegistreerButton.setPrefSize(100,25);
-        root.getChildren().add(RegistreerButton);
-    }
-
-    public void loginCirkel(Pane root){
-        Circle circle2 = new Circle();
-        circle2.setCenterX(400);
-        circle2.setCenterY(380);
-        circle2.setRadius(200);
-        circle2.setFill(Color.DARKBLUE);
-
-        Circle circlewhite2 = new Circle();
-        circlewhite2.setCenterX(400);
-        circlewhite2.setCenterY(388);
-        circlewhite2.setRadius(188);
-        circlewhite2.setFill(Color.WHITE);
-
-        root.getChildren().add(circle2);
-        root.getChildren().add(circlewhite2);
-    }
-    private String translate(String bundleKey){
-        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
-        return bundle.getString(bundleKey);
+    @Override
+    protected int setLayoutY(int buttonIndex) {
+        return 450 + (buttonIndex * 40);
     }
 }

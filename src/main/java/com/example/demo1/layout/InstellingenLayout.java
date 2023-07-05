@@ -1,33 +1,22 @@
 package com.example.demo1.layout;
 
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.ResourceBundle;
-
-public class InstellingenLayout {
+public class InstellingenLayout extends Layout{
     public void instellingenLayout(Pane root){
-        Thema(root);
-        Taal(root);
+        List<String> buttonKeys = Arrays.asList("thema", "taal");
+        maakButton(root, buttonKeys);
+
+    }
+    @Override
+    protected int setLayoutX(int buttonIndex) {
+        return 50 + (buttonIndex * 150);
     }
 
-    public void Thema(Pane root){
-        Button themaButton = new Button(translate("thema"));
-        themaButton.setLayoutX(50);
-        themaButton.setLayoutY(110);
-        themaButton.setPrefSize(100,30);
-        root.getChildren().add(themaButton);
-    }
-
-    public void Taal(Pane root){
-        Button taalButton = new Button(translate("taal"));
-        taalButton.setLayoutX(200);
-        taalButton.setLayoutY(110);
-        taalButton.setPrefSize(100,30);
-        root.getChildren().add(taalButton);
-    }
-    private String translate(String bundleKey){
-        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
-        return bundle.getString(bundleKey);
+    @Override
+    protected int setLayoutY(int buttonIndex) {
+        return 110;
     }
 }
