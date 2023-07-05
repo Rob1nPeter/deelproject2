@@ -9,7 +9,7 @@ import javafx.scene.shape.Circle;
 
 public class ChatBotLayout {
 
-    public void chatBotPaginaLayout(Pane root){
+    public void chatBotLayout(Pane root){
         chatGptCirkel(root);
         chatGptInvoerBox(root);
         chatGptUitvoerBox(root);

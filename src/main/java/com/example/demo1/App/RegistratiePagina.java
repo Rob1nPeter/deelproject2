@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class RegistreerPagina extends Application {
+public class RegistratiePagina extends Application {
     @Override
     public void start(Stage stage) {
         TemplateMethod test = new RegistratiePaginaTemplate();

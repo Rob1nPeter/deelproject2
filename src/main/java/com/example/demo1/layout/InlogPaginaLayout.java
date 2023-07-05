@@ -1,11 +1,13 @@
 package com.example.demo1.layout;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+
+import java.util.ResourceBundle;
+
 
 public class InlogPaginaLayout {
     public void inlogPaginaLayout(Pane root){
@@ -18,7 +20,7 @@ public class InlogPaginaLayout {
 
     public void gebruikersNaam(Pane root){
         TextField gebruikersNaamLogin = new TextField();
-        gebruikersNaamLogin.setPromptText("gebruikersnaam");
+        gebruikersNaamLogin.setPromptText(translate("gebruikersnaam"));
         gebruikersNaamLogin.setLayoutX(280);
         gebruikersNaamLogin.setLayoutY(310);
         gebruikersNaamLogin.setPrefSize(250, 30);
@@ -27,14 +29,14 @@ public class InlogPaginaLayout {
 
     public void Wachtwoord(Pane root){
         TextField wachtwoordLogin = new TextField();
-        wachtwoordLogin.setPromptText("wachtwoord");
+        wachtwoordLogin.setPromptText(translate("wachtwoord"));
         wachtwoordLogin.setLayoutX(280);
         wachtwoordLogin.setLayoutY(370);
         wachtwoordLogin.setPrefSize(250, 30);
         root.getChildren().add(wachtwoordLogin);
     }
     public void loginButton(Pane root){
-        Button loginButton = new Button("Login ");
+        Button loginButton = new Button(translate("login"));
         loginButton.setLayoutX(360);
         loginButton.setLayoutY(450);
         loginButton.setPrefSize(100,25);
@@ -43,7 +45,7 @@ public class InlogPaginaLayout {
     }
 
     public void RegistreerButton(Pane root){
-        Button RegistreerButton = new Button("Registreer ");
+        Button RegistreerButton = new Button(translate("registreer"));
         RegistreerButton.setLayoutX(360);
         RegistreerButton.setLayoutY(480);
         RegistreerButton.setPrefSize(100,25);
@@ -65,5 +67,9 @@ public class InlogPaginaLayout {
 
         root.getChildren().add(circle2);
         root.getChildren().add(circlewhite2);
+    }
+    private String translate(String bundleKey){
+        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
+        return bundle.getString(bundleKey);
     }
 }

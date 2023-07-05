@@ -11,11 +11,12 @@ import javafx.stage.Stage;
 public class Chatbot extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+
         TemplateMethod test = new ChatbotPaginaTemplate();
         ChatBotLayout test2 = new ChatBotLayout();
         Pane root = new Pane();
         Scene scene = new Scene(root, 800, 600);
         test.achtergrond(stage, root, scene);
-        test2.chatBotPaginaLayout(root);
+        test2.chatBotLayout(root);
     }
 }
