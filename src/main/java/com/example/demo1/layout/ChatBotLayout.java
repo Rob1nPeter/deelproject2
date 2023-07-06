@@ -32,7 +32,7 @@ public class ChatBotLayout {
         chatGptInvoerBox(root);
         aanmakenchat(root);
         hernoemChat(root);
-        verwijderChat(root);
+        verwijderChatButton(root);
         stuurMessage(root);
         stuurFile(root);
 
@@ -43,12 +43,13 @@ public class ChatBotLayout {
             if (newValue != null) {
                 currentChatName = newValue.getChatName();
                 uitvoer.setText(newValue.getChatContent());
-
-                Chat previousChat = findChatByName(oldValue.getChatName());
-                if (previousChat != null) {
-                    TextArea previousChatArea = previousChat.getTextArea();
-                    previousChatArea.setVisible(false);
-                }
+                try {
+                    Chat previousChat = findChatByName(oldValue.getChatName());
+                    if (previousChat != null) {
+                        TextArea previousChatArea = previousChat.getTextArea();
+                        previousChatArea.setVisible(false);
+                    }
+                }catch (Exception ignored) {}
 
                 TextArea currentChatArea = newValue.getTextArea();
                 currentChatArea.setVisible(true);
@@ -98,6 +99,12 @@ public class ChatBotLayout {
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(chatName -> {
+            Chat existingChat = findChatByName(chatName);
+            if (existingChat != null) {
+                chatList.getSelectionModel().select(existingChat);
+                return;
+            }
+
             Chat previousChat = findChatByName(currentChatName);
             if (previousChat != null) {
                 TextArea previousChatArea = previousChat.getTextArea();
@@ -112,8 +119,11 @@ public class ChatBotLayout {
             chatArea.setEditable(false);
 
             Chat newChat = new Chat(chatName, chatArea);
-            chats.add(newChat);
-            chatList.getItems().add(newChat);
+            chats.add(newChat); // Voeg de nieuwe chat toe aan de `chats`-lijst
+
+            // Synchroniseer de `chats`-lijst met de `chatList`-weergave
+            chatList.setItems(chats);
+
             chatList.getSelectionModel().select(newChat);
             root.getChildren().add(chatArea);
 
@@ -167,7 +177,7 @@ public class ChatBotLayout {
         button.setOnAction(e -> renameChat(chatList));
     }
 
-    public void verwijderChat(Pane root) {
+    public void verwijderChatButton(Pane root) {
         Button button = new Button("Verwijder");
         button.setId("button");
         button.setLayoutX(310);
@@ -186,7 +196,7 @@ public class ChatBotLayout {
             root.getChildren().remove(chatArea);
             chatAreas.remove(chat.getChatName());
             chats.remove(chat);
-            chatList.getItems().remove(chat);
+            chatList.getItems().remove(chat); // Gebruik de remove-methode van chatList.getItems()
             uitvoer.clear();
         }
     }
