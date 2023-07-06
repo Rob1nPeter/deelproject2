@@ -1,13 +1,14 @@
 package com.example.demo1.layout;
 
-import com.example.demo1.LoginEnRegistreer.LoginValideren;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.util.List;
+
 import static com.example.demo1.Logica.RegistratiePaginaLogica.openRegistratiePagina;
 import static com.example.demo1.Logica.StartPaginaLogica.openStartPagina;
 import static com.example.demo1.LoginEnRegistreer.LoginValideren.loginValideren;

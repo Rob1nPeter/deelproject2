@@ -2,7 +2,6 @@ package com.example.demo1;
 
 
 import javafx.scene.Scene;
-
 import java.io.File;
 
 public abstract class Theme {

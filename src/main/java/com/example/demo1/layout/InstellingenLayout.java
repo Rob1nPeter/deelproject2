@@ -1,6 +1,5 @@
 package com.example.demo1.layout;
 
-import com.example.demo1.Logica.ThemaLogica;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

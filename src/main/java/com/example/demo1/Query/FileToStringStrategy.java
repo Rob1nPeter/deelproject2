@@ -1,9 +1,6 @@
 package com.example.demo1.Query;
 
 import java.io.File;
-import java.util.ResourceBundle;
-
-import static com.example.demo1.Logica.TaalLogica.taal;
 
 
 public class FileToStringStrategy implements QueryResolutionStrategy<File, String>{

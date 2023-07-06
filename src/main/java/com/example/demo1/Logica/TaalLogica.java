@@ -3,8 +3,6 @@ package com.example.demo1.Logica;
 import com.example.demo1.App.Taal;
 import javafx.stage.Stage;
 
-import java.util.ResourceBundle;
-
 public abstract class TaalLogica {
     public static boolean nederlands = true;
     public static String baseNaam = "i18n.messages_NL";

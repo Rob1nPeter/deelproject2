@@ -5,14 +5,12 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.example.demo1.Logica.TaalLogica.baseNaam;
 import static com.example.demo1.Logica.TaalLogica.taal;
 
 public abstract class Layout {
