@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import java.util.ResourceBundle;
 
 public abstract class TaalLogica {
-    public static boolean nederlands;
+    public static boolean nederlands = true;
     public static String baseNaam = "i18n.messages_NL";
     public static void openTaal(Stage stage){
         Taal taal = new Taal();

@@ -21,13 +21,13 @@ public abstract class Layout {
         circle2.setCenterX(400);
         circle2.setCenterY(380);
         circle2.setRadius(200);
-        circle2.setFill(Color.DARKBLUE);
+        circle2.setId("circle1");
 
         Circle circlewhite2 = new Circle();
         circlewhite2.setCenterX(400);
         circlewhite2.setCenterY(388);
         circlewhite2.setRadius(188);
-        circlewhite2.setFill(Color.WHITE);
+        circlewhite2.setId("circle2");
 
         root.getChildren().add(circle2);
         root.getChildren().add(circlewhite2);

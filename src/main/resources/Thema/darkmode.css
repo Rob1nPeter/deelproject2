@@ -28,3 +28,10 @@
     -fx-text-fill: white;
 
 }
+#circle1{
+    -fx-fill: darkblue;
+}
+#circle2{
+    -fx-fill: white;
+
+}

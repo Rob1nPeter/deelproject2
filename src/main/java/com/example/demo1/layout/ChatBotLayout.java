@@ -102,6 +102,36 @@ public class ChatBotLayout {
         invoer.setPrefSize(230, 50);
         root.getChildren().add(invoer);
     }
+    public void aanmakenchat(Pane root) {
+        Button button = new Button(translate("nieuw"));
+        button.setId("button");
+        button.setLayoutX(10);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+        root.getChildren().add(button);
+        button.setOnAction(e -> nieuwechat(root));
+    }
+    public void hernoemChat(Pane root) {
+        Button button = new Button(translate("hernoem"));
+        button.setId("button");
+        button.setLayoutX(160);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
+        button.setOnAction(e -> renameChat(chatList));
+    }
+    public void verwijderChatButton(Pane root) {
+        Button button = new Button(translate("verwijder"));
+        button.setId("button");
+        button.setLayoutX(310);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
+
+        root.getChildren().add(button);
+        button.setOnAction(e -> verwijderChat(chatList, root));
+    }
+
     public void chatGptCirkel(Pane root) {
         Circle circle2 = new Circle();
         circle2.setCenterX(580);
@@ -165,38 +195,6 @@ public class ChatBotLayout {
             }
         }
         return null;
-    }
-
-    public void aanmakenchat(Pane root) {
-        Button button = new Button(translate("nieuw"));
-        button.setId("button");
-        button.setLayoutX(10);
-        button.setLayoutY(110);
-        button.setPrefSize(110, 30);
-        root.getChildren().add(button);
-        button.setOnAction(e -> nieuwechat(root));
-    }
-
-    public void hernoemChat(Pane root) {
-        Button button = new Button(translate("hernoem"));
-        button.setId("button");
-        button.setLayoutX(160);
-        button.setLayoutY(110);
-        button.setPrefSize(110, 30);
-
-        root.getChildren().add(button);
-        button.setOnAction(e -> renameChat(chatList));
-    }
-
-    public void verwijderChatButton(Pane root) {
-        Button button = new Button(translate("verwijder"));
-        button.setId("button");
-        button.setLayoutX(310);
-        button.setLayoutY(110);
-        button.setPrefSize(110, 30);
-
-        root.getChildren().add(button);
-        button.setOnAction(e -> verwijderChat(chatList, root));
     }
 
     private void verwijderChat(ListView<Chat> listView, Pane root) {

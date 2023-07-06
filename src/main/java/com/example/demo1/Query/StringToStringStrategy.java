@@ -1,6 +1,9 @@
 package com.example.demo1.Query;
 
 
+import java.util.ResourceBundle;
+
+import static com.example.demo1.Logica.TaalLogica.taal;
 
 public class StringToStringStrategy implements QueryResolutionStrategy<String,String>{
     @Override
@@ -12,12 +15,16 @@ public class StringToStringStrategy implements QueryResolutionStrategy<String,St
         if(queryData.equals("hallo")){
             resolvedData = "Bot: Hey";
         } else{
-            resolvedData = "Bot: Wat bedoel je met " + queryData + "?";
+            resolvedData = translate("bot") + ": " + queryData + "?";
         }
 
 
 
         // Return the query resolution result
         return new QueryResolutionResult<>(resolvedData);
+    }
+    protected String translate(String bundleKey){
+        ResourceBundle bundle = ResourceBundle.getBundle(taal());
+        return bundle.getString(bundleKey);
     }
 }
