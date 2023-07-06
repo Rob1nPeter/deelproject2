@@ -11,6 +11,13 @@ public abstract class ThemaLogica {
         Thema thema = new Thema();
         thema.start(stage);
     }
+    public static void chooseMode(Stage stage, boolean dark){
+        if (dark){
+            darkMode(stage);
+        } else {
+            lightMode(stage);
+        }
+    }
     public static void lightMode(Stage stage){
         stage.getScene().getStylesheets().remove(Theme.class.getResource("src/main/resources/Thema/darkmode.css"));
         stage.getScene().getStylesheets().add("file:///" + Theme.f.getAbsolutePath().replace("\\", "/"));

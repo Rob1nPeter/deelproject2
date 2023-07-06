@@ -1,6 +1,6 @@
 package com.example.demo1.layout;
 
-import com.example.demo1.Theme;
+import com.example.demo1.Logica.ThemaLogica;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -20,26 +20,26 @@ public class ThemaLayout extends Layout{
         themaTitel(root);
         List<String> buttonKeys = List.of("taal");
         maakButton(root, buttonKeys, stage);
-        lichteModusKnop(root);
-        donkereModusKnop(root);
+        lichteModusKnop(root,stage);
+        donkereModusKnop(root,stage);
         terugKnop(root, stage);
     }
 
-    private void maakThemaKnop(Pane root, String bundleKey, boolean donker, int index){
+    private void maakThemaKnop(Pane root, String bundleKey, boolean donker, int index, Stage stage){
         Button button = new Button(translate(bundleKey));
         button.setId("button");
         x(button);
         y(button, index);
         setPrefSize(button);
         addButton(root, button);
-        button.setOnAction(e -> Theme.darkMode = donker);
+        button.setOnAction(e -> ThemaLogica.chooseMode(stage,donker));
 
     }
-    public void lichteModusKnop(Pane root){
-        maakThemaKnop(root, "licht", false, 0);
+    public void lichteModusKnop(Pane root,Stage stage){
+        maakThemaKnop(root, "licht", false, 0, stage);
     }
-    public void donkereModusKnop(Pane root){
-        maakThemaKnop(root, "donker", true, 1);
+    public void donkereModusKnop(Pane root,Stage stage){
+        maakThemaKnop(root, "donker", true, 1, stage);
     }
     private void x(Button button){
         button.setLayoutX(350);
