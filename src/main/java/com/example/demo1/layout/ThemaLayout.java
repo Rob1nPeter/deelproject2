@@ -1,5 +1,6 @@
 package com.example.demo1.layout;
 
+import com.example.demo1.Theme;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -9,42 +10,48 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-
 import java.util.List;
-
 import static com.example.demo1.Logica.InstellingenLogica.openInstellingen;
 import static com.example.demo1.Logica.TaalLogica.openTaal;
-import static com.example.demo1.Logica.ThemaLogica.*;
 
 public class ThemaLayout extends Layout{
     public void taalLayout(Pane root, Stage stage){
         layoutCirkel(root);
-        themaTitel(root, stage);
+        themaTitel(root);
         List<String> buttonKeys = List.of("taal");
         maakButton(root, buttonKeys, stage);
-        lichteModus(root, stage);
-        donkereModus(root,stage);
+        lichteModusKnop(root);
+        donkereModusKnop(root);
         terugKnop(root, stage);
     }
-    public void lichteModus(Pane root, Stage stage){
-        Button button = new Button(translate("licht"));
+
+    private void maakThemaKnop(Pane root, String bundleKey, boolean donker, int index){
+        Button button = new Button(translate(bundleKey));
         button.setId("button");
-        button.setLayoutX(350);
-        button.setLayoutY(380);
-        button.setPrefSize(110, 30);
-        root.getChildren().add(button);
-        button.setOnAction(e -> lightMode(stage));
+        x(button);
+        y(button, index);
+        setPrefSize(button);
+        addButton(root, button);
+        button.setOnAction(e -> Theme.darkMode = donker);
 
     }
-    public void donkereModus(Pane root, Stage stage){
-        Button button = new Button(translate("donker"));
-        button.setId("button");
+    public void lichteModusKnop(Pane root){
+        maakThemaKnop(root, "licht", false, 0);
+    }
+    public void donkereModusKnop(Pane root){
+        maakThemaKnop(root, "donker", true, 1);
+    }
+    private void x(Button button){
         button.setLayoutX(350);
-        button.setLayoutY(420);
+    }
+    private void y(Button button, int index){
+        button.setLayoutY(380 + (index * 40));
+    }
+    private void setPrefSize(Button button){
         button.setPrefSize(110, 30);
+    }
+    private void addButton(Pane root, Button button){
         root.getChildren().add(button);
-        button.setOnAction(e -> darkMode(stage));
 
     }
 
@@ -70,7 +77,7 @@ public class ThemaLayout extends Layout{
         return 110;
     }
 
-    private void themaTitel(Pane root, Stage stage){
+    private void themaTitel(Pane root){
         String titleText = translate("thema");
 
         Text themaTitle = new Text(titleText);

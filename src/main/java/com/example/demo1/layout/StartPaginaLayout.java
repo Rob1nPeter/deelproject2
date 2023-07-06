@@ -24,16 +24,6 @@ public class StartPaginaLayout extends Layout {
             button.setOnAction(e -> openInlogPagina(stage));
          }
       }
-
-
-   public void placeholder(){
-      System.out.println("test");
-   }
-   @Override
-   protected EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage) {
-      return (e -> placeholder());
-   }
-
    @Override
    protected int setLayoutX(int buttonIndex) {
       return 345;
@@ -42,4 +32,6 @@ public class StartPaginaLayout extends Layout {
    protected int setLayoutY(int buttonIndex) {
       return 370;
    }
+   @Override
+   protected EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage) {return null;}
 }

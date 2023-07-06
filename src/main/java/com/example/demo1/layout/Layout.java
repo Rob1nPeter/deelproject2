@@ -52,18 +52,6 @@ public abstract class Layout {
     }
     protected abstract void setMethode(Button button, Stage stage, String naam);
 
-    public void textfield(Pane root, List<String> textfields)
-    {
-        for(String textFieldKey : textfields){
-            TextField textfield = new TextField();
-            textfield.setPromptText(translate(textFieldKey));
-            textfield.setLayoutX(280);
-            textfield.setLayoutY((310 + (textfields.indexOf(textFieldKey) * 40)));
-            textfield.setPrefSize(250, 30);
-            root.getChildren().add(textfield);
-        }
-    }
-
     public void terugKnop(Pane root, Stage stage){
         Button button = new Button(translate("terug"));
         button.setId("button");
@@ -79,4 +67,22 @@ public abstract class Layout {
 
     protected abstract int setLayoutX(int buttonIndex);
     protected abstract int setLayoutY(int buttonIndex);
+
+    public void x (TextField textField){
+        textField.setLayoutX(280);
+    }
+    public void y (TextField textField, int index){
+        textField.setLayoutY(310 + (40*index));
+    }
+    public void prefSize(TextField textField){
+        textField.setPrefSize(250, 30);
+    }
+    public TextField createTextField(String promptText, int index) {
+        TextField textField = new TextField();
+        textField.setPromptText(promptText);
+        x(textField);
+        y(textField, index);
+        prefSize(textField);
+        return textField;
+    }
 }

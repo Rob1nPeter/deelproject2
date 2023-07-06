@@ -1,6 +1,5 @@
 package com.example.demo1.layout;
 
-import com.example.demo1.Logica.MenuLogica;
 import com.example.demo1.Query.*;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
@@ -16,17 +15,18 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static com.example.demo1.Logica.MenuLogica.openMenu;
 import static com.example.demo1.Logica.TaalLogica.taal;
 
 
 public class ChatBotLayout {
     private ListView<Chat> chatList;
     private TextField invoer;
-    private Map<String, TextArea> chatAreas = new HashMap<>();
+    private final Map<String, TextArea> chatAreas = new HashMap<>();
     private TextArea uitvoer;
     private String currentChatName;
 
-    private ObservableList<Chat> chats = FXCollections.observableArrayList();
+    private final ObservableList<Chat> chats = FXCollections.observableArrayList();
 
     public void chatBotLayout(Pane root, Stage stage) {
         terugKnop(root, stage);
@@ -59,16 +59,17 @@ public class ChatBotLayout {
             }
         });
     }
+    public void terugKnop(Pane root, Stage stage) {
+        Button button = new Button(translate("terug"));
+        button.setId("button");
+        button.setLayoutX(690);
+        button.setLayoutY(110);
+        button.setPrefSize(110, 30);
 
-    public void chatGptInvoerBox(Pane root) {
-        invoer = new TextField();
-        invoer.setPromptText("Voer uw vraag in aan ChatGPT");
-        invoer.setLayoutX(25);
-        invoer.setLayoutY(530);
-        invoer.setPrefSize(230, 50);
-        root.getChildren().add(invoer);
+        button.setOnAction(e -> openMenu(stage));
+
+        root.getChildren().add(button);
     }
-
     public void chatGptListView(Pane root) {
         chatList = new ListView<>();
         chatList.setLayoutX(25);
@@ -92,6 +93,30 @@ public class ChatBotLayout {
                 uitvoer.setText(newValue.getChatContent());
             }
         });
+    }
+    public void chatGptInvoerBox(Pane root) {
+        invoer = new TextField();
+        invoer.setPromptText("Voer uw vraag in aan ChatGPT");
+        invoer.setLayoutX(25);
+        invoer.setLayoutY(530);
+        invoer.setPrefSize(230, 50);
+        root.getChildren().add(invoer);
+    }
+    public void chatGptCirkel(Pane root) {
+        Circle circle2 = new Circle();
+        circle2.setCenterX(580);
+        circle2.setCenterY(429);
+        circle2.setRadius(291.58);
+        circle2.setFill(Color.DARKBLUE);
+
+        Circle circlewhite2 = new Circle();
+        circlewhite2.setCenterX(580);
+        circlewhite2.setCenterY(417.8);
+        circlewhite2.setRadius(270);
+        circlewhite2.setFill(Color.WHITE);
+
+        root.getChildren().add(circle2);
+        root.getChildren().add(circlewhite2);
     }
 
     private void nieuwechat(Pane root) {
@@ -142,23 +167,6 @@ public class ChatBotLayout {
         return null;
     }
 
-    public void chatGptCirkel(Pane root) {
-        Circle circle2 = new Circle();
-        circle2.setCenterX(580);
-        circle2.setCenterY(429);
-        circle2.setRadius(291.58);
-        circle2.setFill(Color.DARKBLUE);
-
-        Circle circlewhite2 = new Circle();
-        circlewhite2.setCenterX(580);
-        circlewhite2.setCenterY(417.8);
-        circlewhite2.setRadius(270);
-        circlewhite2.setFill(Color.WHITE);
-
-        root.getChildren().add(circle2);
-        root.getChildren().add(circlewhite2);
-    }
-
     public void aanmakenchat(Pane root) {
         Button button = new Button(translate("nieuw"));
         button.setId("button");
@@ -204,18 +212,6 @@ public class ChatBotLayout {
         }
     }
 
-    public void terugKnop(Pane root, Stage stage) {
-        Button button = new Button(translate("terug"));
-        button.setId("button");
-        button.setLayoutX(690);
-        button.setLayoutY(110);
-        button.setPrefSize(110, 30);
-
-        button.setOnAction(e -> MenuLogica.openMenu(stage));
-
-        root.getChildren().add(button);
-    }
-
     public void stuurMessage(Pane root) {
         Button button = new Button(translate("stuur"));
         button.setId("button");
@@ -235,7 +231,7 @@ public class ChatBotLayout {
         button.setPrefSize(110, 30);
 
         root.getChildren().add(button);
-        button.setOnAction(e -> sendFile(uitvoer, chatList));
+        button.setOnAction(e -> sendFile(chatList));
     }
 
     public void sendMessage(TextField invoer, ListView<Chat> listView) {
@@ -263,7 +259,7 @@ public class ChatBotLayout {
         }
     }
 
-    public static void sendFile(TextArea uitvoer, ListView<Chat> listView) {
+    public static void sendFile(ListView<Chat> listView) {
         FileChooser fileChooser = new FileChooser();
 
         Stage window = new Stage();

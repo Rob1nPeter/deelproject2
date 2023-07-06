@@ -1,64 +1,56 @@
 package com.example.demo1.layout;
 
-import com.example.demo1.LoginEnRegistreer.LoginValideren;
-import com.example.demo1.LoginEnRegistreer.RegistratieValideren;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import java.util.List;
 import static com.example.demo1.Logica.LoginPaginaLogica.openInlogPagina;
-import static java.util.Arrays.asList;
+import static com.example.demo1.LoginEnRegistreer.RegistratieValideren.registratieValideren;
 
 
 public class RegistratiePaginaLayout extends Layout{
+    TextField gebruikersnaam;
+    TextField wachtwoord;
 
     public void registratiePaginaLayout(Pane root, Stage stage) {
         layoutCirkel(root);
-        Register(root, stage);
+        Register(root);
         terugKnop(root, stage);
     }
     @Override
     protected void setMethode(Button button, Stage stage, String buttonKey) {
-        if (buttonKey.equals("registreer")) {
-        }
+        button.setOnAction(e -> registratieAction(button,gebruikersnaam, wachtwoord));
+
     }
 
-    public void Register(Pane root,Stage stage)
-    {
-        TextField usernameR = new TextField();
-        usernameR.setPromptText(translate("gebruikersnaam"));
-        usernameR.setLayoutX(280);
-        usernameR.setLayoutY(310);
-        usernameR.setPrefSize(250, 30);
-
-
-        TextField passwordR = new TextField();
-        passwordR.setPromptText(translate("wachtwoord"));
-        passwordR.setLayoutX(280);
-        passwordR.setLayoutY(350);
-        passwordR.setPrefSize(250, 30);
-
-        Button Regisratie = new Button(translate("registreer"));
-        Regisratie.setLayoutX(350);
-        Regisratie.setLayoutY(400);
-        Regisratie.setPrefSize(110,30);
-
-        Regisratie.setOnAction(e -> {
-            String gebruikersnaam = usernameR.getText();
-            String wachtwoord = passwordR.getText();
-
-            RegistratieValideren.registratieValideren(gebruikersnaam, wachtwoord);
-
+    public void registratieAction(Button regisratie, TextField usernameR, TextField passwordR ){
+        regisratie.setOnAction(e -> {
+             String gebruikersnaam = usernameR.getText();
+             String wachtwoord = passwordR.getText();
+            registratieValideren(gebruikersnaam, wachtwoord);
             usernameR.clear();
             passwordR.clear();
         });
+    }
 
-        root.getChildren().add(Regisratie);
+    public void Register(Pane root)
+    {
+        TextField usernameR = createTextField(translate("gebruikersnaam"), 0);
+        TextField passwordR = createTextField(translate("wachtwoord"), 1);
+
+        Button regisratie = new Button(translate("registreer"));
+        regisratie.setId("button");
+        regisratie.setLayoutX(350);
+        regisratie.setLayoutY(400);
+        regisratie.setPrefSize(110,30);
+
+        root.getChildren().add(regisratie);
         root.getChildren().add(usernameR);
         root.getChildren().add(passwordR);
+
+        registratieAction(regisratie, usernameR, passwordR);
     }
 
     @Override

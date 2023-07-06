@@ -22,8 +22,4 @@ public abstract class TaalLogica {
         }
         return baseNaam;
     }
-    public static String translate(String bundleKey){
-        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages_NL");
-        return bundle.getString(bundleKey);
-    }
 }

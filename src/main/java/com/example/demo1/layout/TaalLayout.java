@@ -25,25 +25,33 @@ public class TaalLayout extends Layout{
         engelsKnop(root);
         terugKnop(root, stage);
     }
-
-    public void nederlandsKnop(Pane root){
-        Button button = new Button(translate("nederlands"));
+    private void maakTaalKnop(Pane root, String bundleKey, boolean nl, int index){
+        Button button = new Button(translate(bundleKey));
         button.setId("button");
-        button.setLayoutX(350);
-        button.setLayoutY(380);
-        button.setPrefSize(110, 30);
-        root.getChildren().add(button);
-        button.setOnAction(e -> nederlands = true);
+        x(button);
+        y(button, index);
+        setPrefSize(button);
+        addButton(root, button);
+        button.setOnAction(e -> nederlands = nl);
 
     }
+    public void nederlandsKnop(Pane root){
+        maakTaalKnop(root, "nederlands", true, 0);
+    }
     public void engelsKnop(Pane root){
-        Button button = new Button(translate("engels"));
-        button.setId("button");
+        maakTaalKnop(root, "engels", false, 1);
+    }
+    private void x(Button button){
         button.setLayoutX(350);
-        button.setLayoutY(420);
+    }
+    private void y(Button button, int index){
+        button.setLayoutY(380 + (index * 40));
+    }
+    private void setPrefSize(Button button){
         button.setPrefSize(110, 30);
+    }
+    private void addButton(Pane root, Button button){
         root.getChildren().add(button);
-        button.setOnAction(e -> nederlands = false);
 
     }
 
@@ -58,7 +66,6 @@ public class TaalLayout extends Layout{
     protected EventHandler<ActionEvent> setMethodeTerugKnop(Stage stage) {
         return (actionEvent -> openInstellingen(stage));
     }
-
     @Override
     protected int setLayoutX(int buttonIndex) {
         return 10 + (buttonIndex * 150);
