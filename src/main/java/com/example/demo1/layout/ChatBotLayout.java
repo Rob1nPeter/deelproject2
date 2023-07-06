@@ -147,9 +147,9 @@ public class ChatBotLayout {
             chatArea.setEditable(false);
 
             Chat newChat = new Chat(chatName, chatArea);
-            chats.add(newChat); // Voeg de nieuwe chat toe aan de `chats`-lijst
+            chats.add(newChat); // Voeg de nieuwe chat toe aan de chats-lijst
 
-            // Synchroniseer de `chats`-lijst met de `chatList`-weergave
+
             chatList.setItems(chats);
 
             chatList.getSelectionModel().select(newChat);
