@@ -8,7 +8,7 @@ class LoginValiderenTest {
 
     @Test
     void loginValideren() {
-        assertTrue(LoginValideren.testLogin("aaa", "aaa"));
+        assertTrue(LoginValideren.testLogin("ccc", "ccc"));
 
     }
     @Test
