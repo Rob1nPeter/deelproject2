@@ -53,10 +53,11 @@ public class InlogPaginaLayout extends Layout{
         password.setLayoutY(350);
         password.setPrefSize(250, 30);
 
-        Button LogIn = new Button("LogIn");
+        Button LogIn = new Button(translate("login"));
         LogIn.setLayoutX(350);
         LogIn.setLayoutY(400);
         LogIn.setPrefSize(110,30);
+        LogIn.setId("button");
 
         LogIn.setOnAction(e -> {
             String gebruikersnaam = username.getText();

@@ -69,7 +69,7 @@ public class TaalLayout extends Layout{
         return 110;
     }
     private void taalTitel(Pane root){
-        String titleText = "Taal";
+        String titleText = translate("taal");
 
         Text taalTitle = new Text(titleText);
         taalTitle.setFont(Font.font("Oswald", FontWeight.BOLD, 35));

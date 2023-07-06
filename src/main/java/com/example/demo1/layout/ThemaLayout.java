@@ -28,7 +28,7 @@ public class ThemaLayout extends Layout{
         terugKnop(root, stage);
     }
     public void lichteModus(Pane root, Stage stage){
-        Button button = new Button("licht");
+        Button button = new Button(translate("licht"));
         button.setId("button");
         button.setLayoutX(350);
         button.setLayoutY(380);
@@ -38,7 +38,7 @@ public class ThemaLayout extends Layout{
 
     }
     public void donkereModus(Pane root, Stage stage){
-        Button button = new Button("donker");
+        Button button = new Button(translate("donker"));
         button.setId("button");
         button.setLayoutX(350);
         button.setLayoutY(420);
@@ -71,7 +71,7 @@ public class ThemaLayout extends Layout{
     }
 
     private void themaTitel(Pane root, Stage stage){
-        String titleText = "Thema";
+        String titleText = translate("thema");
 
         Text themaTitle = new Text(titleText);
         themaTitle.setFont(Font.font("Oswald", FontWeight.BOLD, 35));

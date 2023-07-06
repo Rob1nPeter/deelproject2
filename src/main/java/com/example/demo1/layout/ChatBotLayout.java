@@ -14,6 +14,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.ResourceBundle;
+
+import static com.example.demo1.Logica.TaalLogica.taal;
 
 
 public class ChatBotLayout {
@@ -75,9 +78,9 @@ public class ChatBotLayout {
 
         // Initialisatie van de uitvoer TextArea
         uitvoer = new TextArea();
-        uitvoer.setLayoutX(385);
+        uitvoer.setLayoutX(400);
         uitvoer.setLayoutY(216);
-        uitvoer.setPrefSize(390, 500);
+        uitvoer.setPrefSize(355, 500);
         uitvoer.setStyle("-fx-control-inner-background: white; -fx-text-fill: black; -fx-border-color: white");
         uitvoer.setEditable(false);
         root.getChildren().add(uitvoer);
@@ -92,10 +95,10 @@ public class ChatBotLayout {
     }
 
     private void nieuwechat(Pane root) {
-        TextInputDialog dialog = new TextInputDialog("Nieuwe Chat");
-        dialog.setTitle("Nieuwe Chat");
+        TextInputDialog dialog = new TextInputDialog(translate("nieuwchat"));
+        dialog.setTitle(translate("nieuwchat"));
         dialog.setHeaderText(null);
-        dialog.setContentText("Voer de naam van de nieuwe chat in:");
+        dialog.setContentText(translate("voernaam"));
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(chatName -> {
@@ -112,9 +115,9 @@ public class ChatBotLayout {
             }
 
             TextArea chatArea = new TextArea();
-            chatArea.setLayoutX(385);
+            chatArea.setLayoutX(400);
             chatArea.setLayoutY(216);
-            chatArea.setPrefSize(390, 500);
+            chatArea.setPrefSize(355, 500);
             chatArea.setStyle("-fx-control-inner-background: white; -fx-text-fill: black; -fx-border-color: white");
             chatArea.setEditable(false);
 
@@ -143,13 +146,13 @@ public class ChatBotLayout {
         Circle circle2 = new Circle();
         circle2.setCenterX(580);
         circle2.setCenterY(429);
-        circle2.setRadius(302.38);
+        circle2.setRadius(291.58);
         circle2.setFill(Color.DARKBLUE);
 
         Circle circlewhite2 = new Circle();
         circlewhite2.setCenterX(580);
         circlewhite2.setCenterY(417.8);
-        circlewhite2.setRadius(280);
+        circlewhite2.setRadius(270);
         circlewhite2.setFill(Color.WHITE);
 
         root.getChildren().add(circle2);
@@ -157,7 +160,7 @@ public class ChatBotLayout {
     }
 
     public void aanmakenchat(Pane root) {
-        Button button = new Button("Nieuw");
+        Button button = new Button(translate("nieuw"));
         button.setId("button");
         button.setLayoutX(10);
         button.setLayoutY(110);
@@ -167,7 +170,7 @@ public class ChatBotLayout {
     }
 
     public void hernoemChat(Pane root) {
-        Button button = new Button("Hernoem");
+        Button button = new Button(translate("hernoem"));
         button.setId("button");
         button.setLayoutX(160);
         button.setLayoutY(110);
@@ -178,7 +181,7 @@ public class ChatBotLayout {
     }
 
     public void verwijderChatButton(Pane root) {
-        Button button = new Button("Verwijder");
+        Button button = new Button(translate("verwijder"));
         button.setId("button");
         button.setLayoutX(310);
         button.setLayoutY(110);
@@ -202,7 +205,7 @@ public class ChatBotLayout {
     }
 
     public void terugKnop(Pane root, Stage stage) {
-        Button button = new Button("Terug");
+        Button button = new Button(translate("terug"));
         button.setId("button");
         button.setLayoutX(690);
         button.setLayoutY(110);
@@ -214,7 +217,7 @@ public class ChatBotLayout {
     }
 
     public void stuurMessage(Pane root) {
-        Button button = new Button("Stuur");
+        Button button = new Button(translate("stuur"));
         button.setId("button");
         button.setLayoutX(255);
         button.setLayoutY(550);
@@ -225,7 +228,7 @@ public class ChatBotLayout {
     }
 
     public void stuurFile(Pane root) {
-        Button button = new Button("Foto");
+        Button button = new Button(translate("foto"));
         button.setId("button");
         button.setLayoutX(460);
         button.setLayoutY(110);
@@ -309,5 +312,9 @@ public class ChatBotLayout {
                 listView.refresh();
             });
         }
+    }
+    private String translate(String bundleKey){
+        ResourceBundle bundle = ResourceBundle.getBundle(taal());
+        return bundle.getString(bundleKey);
     }
 }

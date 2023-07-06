@@ -18,9 +18,6 @@ public class RegistratiePaginaLayout extends Layout{
     public void registratiePaginaLayout(Pane root, Stage stage) {
         layoutCirkel(root);
         Register(root, stage);
-//        textfield(root, textfields);
-        //List<String> buttonKeys = List.of("registreer");
-       // maakButton(root, buttonKeys, stage);
         terugKnop(root, stage);
     }
     @Override
@@ -44,7 +41,7 @@ public class RegistratiePaginaLayout extends Layout{
         passwordR.setLayoutY(350);
         passwordR.setPrefSize(250, 30);
 
-        Button Regisratie = new Button("Registreer");
+        Button Regisratie = new Button(translate("registreer"));
         Regisratie.setLayoutX(350);
         Regisratie.setLayoutY(400);
         Regisratie.setPrefSize(110,30);
