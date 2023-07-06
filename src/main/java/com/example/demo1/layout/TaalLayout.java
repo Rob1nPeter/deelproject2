@@ -47,9 +47,6 @@ public class TaalLayout extends Layout{
 
     }
 
-
-
-
     @Override
     protected void setMethode(Button button, Stage stage, String buttonKey) {
         if (buttonKey.equals("thema")) {
@@ -64,7 +61,7 @@ public class TaalLayout extends Layout{
 
     @Override
     protected int setLayoutX(int buttonIndex) {
-        return 50 + (buttonIndex * 150);
+        return 10 + (buttonIndex * 150);
     }
 
     @Override

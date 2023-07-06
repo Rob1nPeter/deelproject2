@@ -1,4 +1,1 @@
-sss:ssssss:sss
-bbb:bbb
-aaa:aaa
-bbb:bbb
+admin:admin

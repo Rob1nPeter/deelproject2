@@ -9,5 +9,10 @@ class LoginValiderenTest {
     @Test
     void loginValideren() {
         assertTrue(LoginValideren.testLogin("aaa", "aaa"));
+
+    }
+    @Test
+    void loginValideren2(){
+        assertTrue(LoginValideren.testLogin("bbb","bbb"));
     }
 }

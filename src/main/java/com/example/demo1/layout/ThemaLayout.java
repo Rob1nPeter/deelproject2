@@ -62,7 +62,7 @@ public class ThemaLayout extends Layout{
 
     @Override
     protected int setLayoutX(int buttonIndex) {
-        return 50 + ((1+buttonIndex) * 150);
+        return 10 + ((1+buttonIndex) * 150);
     }
 
     @Override
