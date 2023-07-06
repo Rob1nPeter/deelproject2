@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginAccountsLezenTest {
-    @Test
+    @Test // bestaande File
     public void testLaadAccountsUitBestand_ValidFile_ReturnsCorrectAccounts() {
         // Arrange
         String fileName = "accounts.txt";
@@ -25,10 +25,10 @@ public class LoginAccountsLezenTest {
         assertEquals("password1", accounts.get("user1"));
         assertEquals("password2", accounts.get("user2"));
 
-        // Clean up - delete the test file
+        // Clean up
         deleteTestFile(fileName);
     }
-    @Test
+    @Test // niet bestaande file
     public void testLaadAccountsUitBestand_InvalidFile_ReturnsEmptyAccounts() {
         // Arrange
         String fileName = "nonexistent.txt";
@@ -41,10 +41,10 @@ public class LoginAccountsLezenTest {
         // Assert
         assertEquals(0, accounts.size());
 
-        // Clean up - no need to delete anything since the file doesn't exist
+        // geen clean up
     }
 
-    // Helper method to create a test file with the given name and content
+    // maak testfile met naam en content
     private void createTestFile(String fileName, String content) {
         try {
             FileWriter writer = new FileWriter(fileName);
@@ -55,7 +55,7 @@ public class LoginAccountsLezenTest {
         }
     }
 
-    // Helper method to delete the test file with the given name
+    // delete testfile
     private void deleteTestFile(String fileName) {
         File file = new File(fileName);
         if (file.exists()) {
